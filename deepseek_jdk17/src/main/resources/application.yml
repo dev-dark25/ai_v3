@@ -1,0 +1,30 @@
+#properties 优先级高于 yml
+
+#注意事项：冒号后需要加空格；缩进只能用空格，不能使用TAB
+
+spring:
+  application:
+    name: deepseek
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+#        model: deepseek-r1:1.5b
+        model: qwen3:0.6b
+    openai:
+      api-key: sk-xxxxx
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat  # or deepseek-reasoner
+server:
+  servlet:
+    context-path: /deepseek
+  port: 8180
+deepseek:
+  api:
+    url: https://api.deepseek.com/v1/chat/completions
+    key: sk-xxxxx
+aliyun:
+  api:
+    key: sk-xxxxx
