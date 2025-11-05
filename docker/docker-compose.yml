@@ -1,0 +1,9 @@
+version: '3'
+services:
+  deepseek:
+    image: "deepseek:8180"
+    container_name: "deepseek"
+    ports:
+      - "8180:8180"
+    volumes:
+      - "/home/zs/docker/deepseek:/usr/data"
