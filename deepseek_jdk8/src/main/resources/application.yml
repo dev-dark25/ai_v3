@@ -1,0 +1,15 @@
+#properties 优先级高于 yml
+
+#注意事项：冒号后需要加空格；缩进只能用空格，不能使用TAB
+
+server:
+  servlet:
+    context-path: /deepseek
+  port: 8180
+deepseek:
+  api:
+    url: https://api.deepseek.com/v1/chat/completions
+    key: sk-xxxxx
+aliyun:
+  api:
+    key: sk-xxxxx
