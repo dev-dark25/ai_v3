@@ -13,4 +13,7 @@ public class ModelConfig {
     public static final String QW_NAME = "QWen";
     public static final String QW_P = "qwen-plus"; // qwen-plus
     public static final String QW_LOCAL_QW3 = "qwen3:0.6b";
+
+    public static final String VE_NAME = "Volcengine";
+    public static final String VE_S = "doubao-seed-1.6"; // Doubao-Seed-1.6
 }
