@@ -9,10 +9,10 @@ spring:
     ollama:
       base-url: http://localhost:11434
       chat:
-#        model: deepseek-r1:1.5b
+        #        model: deepseek-r1:1.5b
         model: qwen3:0.6b
     openai:
-      api-key: sk-xxxxx
+      api-key: sk-d0363c2c9d794b118be372a55c1db4cc
       base-url: https://api.deepseek.com
       chat:
         options:
@@ -28,3 +28,7 @@ deepseek:
 aliyun:
   api:
     key: sk-xxxxx
+volcengine:
+  api:
+    url: https://ark.cn-beijing.volces.com/api/v3
+    key: xxxxx

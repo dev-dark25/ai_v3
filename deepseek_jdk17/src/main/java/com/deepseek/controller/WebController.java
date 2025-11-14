@@ -22,6 +22,10 @@ public class WebController {
     @Qualifier("QWenServiceImpl")
     private AIService qwenService;
 
+    @Resource
+    @Qualifier("VolcengineServiceImpl")
+    private AIService volcengineService;
+
     @PostMapping("/call")
     public Map callApi(@RequestBody Map<String, Object> req) {
         System.out.println("input: " + req.get("input"));
@@ -35,6 +39,9 @@ public class WebController {
                 break;
             case ModelConfig.QW_NAME:
                 result = qwenService.callApi(req);
+                break;
+            case ModelConfig.VE_NAME:
+                result = volcengineService.callApi(req);
                 break;
             default:
                 result = null;

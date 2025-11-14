@@ -73,7 +73,7 @@ public class DeepSeekServiceImpl implements AIService {
 //            default -> oa = new Object[]{};
 //        }
 //
-//        AIRequest request = new AIRequest(model, oa, false);
+//        AIRequest request = new AIRequest(ModelConfig.DS_V3.equals(model) || ModelConfig.DS_R1.equals(model) ? model : ModelConfig.DS_R1, oa, false);
 //        headers.set("Authorization", "Bearer " + apiKey);
 //        HttpEntity<AIRequest> entity = new HttpEntity<>(request, headers);
 //
