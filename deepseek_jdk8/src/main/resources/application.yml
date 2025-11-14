@@ -13,3 +13,7 @@ deepseek:
 aliyun:
   api:
     key: sk-xxxxx
+volcengine:
+  api:
+    url: https://ark.cn-beijing.volces.com/api/v3
+    key: xxxxx
