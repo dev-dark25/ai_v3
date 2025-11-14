@@ -75,6 +75,12 @@
             <version>2.21.13</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.volcengine</groupId>
+            <artifactId>volcengine-java-sdk-ark-runtime</artifactId>
+            <version>0.2.44</version>
+        </dependency>
+
     </dependencies>
 
     <build>
