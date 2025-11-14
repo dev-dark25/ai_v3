@@ -38,7 +38,7 @@ public class DeepSeekServiceImpl implements AIService {
         }
 
         AIRequest request = new AIRequest();
-        request.setModel(model);
+        request.setModel(ModelConfig.DS_V3.equals(model) || ModelConfig.DS_R1.equals(model) ? model : ModelConfig.DS_R1);
 
         Object[] oa = null;
         if (ModelConfig.DS_V3.equals(model)) {
