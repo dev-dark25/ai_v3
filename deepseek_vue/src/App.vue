@@ -10,11 +10,14 @@
         <el-radio value="deepseek-reasoner">deepseek r1</el-radio>
         <el-radio value="deepseek-chat">deepseek v3</el-radio>
       </el-radio-group> -->
-      <el-select v-show="flag" v-model="model" placeholder="Select" style="width: 120px;margin-left: 1rem;">
+      <el-select v-show="flag === 0" v-model="model" placeholder="Select" style="width: 120px;margin-left: 1rem;">
         <el-option v-for="item in dsModels" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
-      <el-select v-show="!flag" v-model="model" placeholder="Select" style="width: 120px;margin-left: 1rem;">
+      <el-select v-show="flag === 1" v-model="model" placeholder="Select" style="width: 120px;margin-left: 1rem;">
         <el-option v-for="item in qwModels" :key="item.value" :label="item.label" :value="item.value" />
+      </el-select>
+      <el-select v-show="flag === 2" v-model="model" placeholder="Select" style="width: 120px;margin-left: 1rem;">
+        <el-option v-for="item in veModels" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
     </div>
 
@@ -38,7 +41,7 @@ export default {
       model: '',
       output: 'output',
       type: 'DeepSeek',
-      flag: true,
+      flag: 0,
       options: [
         {
           value: 'DeepSeek',
@@ -47,6 +50,10 @@ export default {
         {
           value: 'QWen',
           label: 'QWen',
+        },
+        {
+          value: 'Volcengine',
+          label: 'Volcengine',
         }
       ],
       dsModels: [
@@ -77,6 +84,16 @@ export default {
           label: 'qwen plus',
         }
       ],
+      veModels: [
+        {
+          value: 'local',
+          label: 'local',
+        },
+        {
+          value: 'doubao-seed-1.6',
+          label: 'Doubao-Seed-1.6',
+        }
+      ]
     }
   },
   created() {
@@ -87,7 +104,13 @@ export default {
   },
   methods: {
     typeChange() {
-      this.flag = !this.flag;
+      if (this.type === 'DeepSeek') {
+        this.flag = 0;
+      } else if (this.type === 'QWen') {
+        this.flag = 1;
+      } else if (this.type === 'Volcengine') {
+        this.flag = 2;
+      }
       this.model = '';
     },
 
@@ -99,6 +122,7 @@ export default {
       newElement.textContent = this.input;
       this.$refs.container.appendChild(newElement);
       this.$refs.container.scrollTop = this.$refs.container.scrollHeight;
+      const content = this.input;
       this.input = '';
 
       // css加载中
@@ -111,7 +135,7 @@ export default {
       newElement2.setAttribute('style', css2);
 
       const req = {
-        input: this.input,
+        input: content,
         type: this.type,
         model: this.model
       }
@@ -158,7 +182,7 @@ header {
 
 @media (min-width: 1024px) {
   header {
-    display: flex;
+    /* display: flex; */
     place-items: center;
   }
 
